@@ -45,7 +45,7 @@
     pointer-events: none; z-index: 1;
   }
 
-  .wrap { max-width: 920px; margin: 0 auto; padding: 0 28px; position: relative; z-index: 2; }
+  .wrap { max-width: 1100px; margin: 0 auto; padding: 0 28px; position: relative; z-index: 2; }
 
   nav {
     position: sticky; top: 0; z-index: 10;
@@ -61,7 +61,7 @@
   .nav-links a:hover { color: var(--accent); }
   @media (max-width: 620px) { .nav-links { display: none; } }
 
-  header { padding: 110px 0 80px; }
+  header { padding: 130px 0 90px; }
   .eyebrow {
     font-size: 13px; color: var(--accent); letter-spacing: 3px;
     text-transform: uppercase; margin-bottom: 22px;
@@ -69,14 +69,15 @@
   }
   h1 {
     font-family: var(--display); font-weight: 500;
-    font-size: clamp(42px, 8vw, 80px); line-height: 1.02;
+    max-width: 900px;
+    font-size: clamp(42px, 8vw, 80px); line-height: 1.08;
     letter-spacing: -1px; margin-bottom: 24px;
     opacity: 0; animation: rise .7s .25s forwards;
   }
   h1 .accent { color: var(--accent); font-style: italic; }
   .lede {
     font-size: clamp(16px, 2.4vw, 19px); color: var(--muted);
-    max-width: 620px; margin-bottom: 40px;
+    max-width: 720px; margin-bottom: 40px;
     opacity: 0; animation: rise .7s .4s forwards;
   }
   .cta-row { display: flex; gap: 14px; flex-wrap: wrap; opacity: 0; animation: rise .7s .55s forwards; }
@@ -91,7 +92,7 @@
   .btn.primary { background: var(--accent); color: #1a0f33; border-color: var(--accent); font-weight: 700; }
   .btn.primary:hover { background: #c4b1ff; }
 
-  section { padding: 64px 0; border-top: 1px solid var(--line); }
+  section { padding: 72px 0; border-top: 1px solid var(--line); }
   .section-label {
     font-family: var(--mono); font-size: 13px; color: var(--accent);
     letter-spacing: 2px; text-transform: uppercase; margin-bottom: 28px;
@@ -99,16 +100,40 @@
   }
   .section-label::before { content: "//"; color: var(--muted); }
   h2 { font-family: var(--display); font-weight: 500; font-size: clamp(26px,4vw,38px); letter-spacing: -.5px; margin-bottom: 18px; }
-  p.body { color: var(--muted); font-size: 16px; max-width: 640px; }
+  p.body { color: var(--muted); font-size: 16px; max-width: 800px; }
   p.body + p.body { margin-top: 16px; }
 
-  .projects { display: grid; gap: 18px; }
+  .timeline a,
+  p.body a,
+  .job p a {
+    color: var(--accent);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(167,139,250,0.3);
+    transition: border-color .2s, color .2s;
+  }
+  .timeline a:hover,
+  p.body a:hover,
+  .job p a:hover {
+    color: #c4b1ff;
+    border-bottom-color: var(--accent);
+  }
+
+  .projects { display: grid; 
+    grid-template-columns: repeat(2, 1fr);
+  gap: 18px; }
+  @media (max-width: 720px) {
+  .projects { grid-template-columns: 1fr; }
+}
   .card {
     background: var(--panel); border: 1px solid var(--line);
     border-radius: 14px; padding: 26px;
     transition: transform .18s, border-color .2s;
   }
-  .card:hover { transform: translateY(-3px); border-color: var(--accent); }
+  .card:hover {
+  transform: translateY(-3px);
+  border-color: var(--accent);
+  box-shadow: 0 8px 30px rgba(167,139,250,0.08);
+  }
   .card h3 { font-family: var(--display); font-size: 22px; font-weight: 500; margin-bottom: 8px; }
   .card h3 a { color: var(--text); text-decoration: none; }
   .card h3 a:hover { color: var(--accent); }
@@ -152,13 +177,13 @@
 
   <nav>
     <div class="wrap">
-      <!-- ===== EDIT: your initials or short handle ===== -->
-      <a class="logo" href="#">Ahmed E. Mohamed<span>.</span></a>
+      <a class="logo" href="#">Ahmed E. Mohamed</a>
       <div class="nav-links">
         <a href="#about">about</a>
         <a href="#education">education</a>
         <a href="#experience">experience</a>
         <a href="#work">work</a>
+        <a href="#research">research</a>
         <a href="#skills">skills</a>
         <a href="#contact">contact</a>
       </div>
@@ -234,18 +259,17 @@
       </div>
     </div>
   </section>
-  
+
   <section id="experience">
     <div class="wrap">
       <div class="section-label">experience</div>
       <h2>Where I've worked</h2>
       <div class="timeline">
 
-        <!-- ===== EDIT: duplicate a .job block per role. Newest first. Lead each bullet with impact. ===== -->
         <div class="job">
           <div class="job-head">
             <span class="job-role">Research Assistant <span class="at">@ Robarts Research Institute, Western University</span></span>
-            <span class="job-dates">2024 — Present</span>
+            <span class="job-dates">2024 — Present · London, ON</span>
           </div>
           <ul>
             <li>Built a residual U-Net to refine noisy CT perfusion maps from lower-temporal resolution CT scans, using initial physics-based perfusion outputs as input and high-temporal-resolution maps as ground truth; applied pretraining and a lightweight architecture to handle a limited dataset.</li>
@@ -257,7 +281,7 @@
         <div class="job">
           <div class="job-head">
             <span class="job-role">AI Research Assistant <span class="at">@ Sejong University</span></span>
-            <span class="job-dates">Mar 2024 — Sep 2024</span>
+            <span class="job-dates">Mar 2024 — Sep 2024 · Seoul, South Korea</span>
           </div>
           <p>Built a multi-stage deep-learning pipeline to detect and grade lumbar spinal stenosis from MRI.</p>
           <ul>
@@ -270,7 +294,7 @@
         <div class="job">
           <div class="job-head">
             <span class="job-role">Clinical Engineer (Mandatory Military Service) <span class="at">@ Elhelmia Military Hospital</span></span>
-            <span class="job-dates">Jan 2023 - Feb 2024</span>
+            <span class="job-dates">Jan 2023 - Feb 2024 · Cairo, Egypt</span>
           </div>
           <ul>
             <li>Performed preventive maintenance and functionality checks on medical equipment, including defibrillators, ECG machines, and ventilators, and resolved minor issues with CT workstations and other devices.</li>
@@ -281,7 +305,7 @@
         <div class="job">
           <div class="job-head">
             <span class="job-role">AI Research Intern <span class="at">@ Valeo</span></span>
-            <span class="job-dates">Jan 2023 - Feb 2024</span>
+            <span class="job-dates">Jan 2023 - Feb 2024 · Giza, Egypt</span>
           </div>
           <p>Explored using LLMs to automate unit-test generation for embedded developers, aiming to save developer time.</p>
           <ul>
@@ -293,7 +317,7 @@
         <div class="job">
           <div class="job-head">
             <span class="job-role">Bioinformatics Research Intern <span class="at">@ Centre for Genomic Regulation (CRG)</span></span>
-            <span class="job-dates">Aug 2021 - Jul 2022</span>
+            <span class="job-dates">Aug 2021 - Jul 2022 · Barcelona, Spain (Remote)</span>
           </div>
           <p>Investigated the role of DNA-repair-gene mutations in cancer evolution, combining deep learning, population-genetics simulation, and large-scale data engineering.</p>
           <ul>
@@ -314,7 +338,6 @@
       <h2>Projects</h2>
       <div class="projects">
 
-        <!-- ===== EDIT: duplicate a card for each project. Link to GitHub repo or live demo. ===== -->
          <div class="card">
           <h3><a href="https://github.com/ahmedelbadawy/lumbar_spine_segmentation" target="_blank" rel="noopener">Lumbar Spine MRI Segmentation</a></h3>
           <p>A U-Net with Squeeze-and-Excitation attention that segments five lumbar spine structures from
@@ -323,7 +346,7 @@
             benchmark on the dataset.</p>
           <div class="tags">
             <span class="tag">Python</span>
-            <span class="tag">PyTorchspan>
+            <span class="tag">PyTorch</span>
             <span class="tag">MONAI</span>
             <span class="tag">Albumentations</span>
             <span class="tag"> W&amp;B</span>
@@ -410,6 +433,52 @@
     </div>
   </section>
 
+  <section id="research">
+    <div class="wrap">
+      <div class="section-label">research</div>
+      <h2>Publications</h2>
+      <div class="timeline">
+
+        <div class="job">
+          <div class="job-head">
+            <span class="job-role">Evaluating AI-Powered Predictive Solutions for MRI in Lumbar Spinal Stenosis: A Systematic Review</span>
+            <span class="job-dates">2025</span>
+          </div>
+          <p><a href="https://link.springer.com/article/10.1007/s10462-025-11185-y" target="_blank" rel="noopener">Artificial Intelligence Review (journal)</a></p>
+        </div>
+
+        <div class="job">
+          <div class="job-head">
+            <span class="job-role">AI Segmentation Framework for Identifying Pathological Areas Causing Lumbar Spinal Stenosis</span>
+            <span class="job-dates">2024</span>
+          </div>
+          <p><a href="https://www.worldresearchlibrary.org/up_proc/pdf/6737-17213921531-8.pdf" target="_blank" rel="noopener">IRES International Conference Proceedings, Jeju Island</a></p>
+        </div>
+
+      </div>
+
+      <h2 class="subsection-heading">Presentations</h2>
+      <div class="timeline">
+
+        <div class="job">
+          <div class="job-head">
+            <span class="job-role">CT Perfusion for Simultaneous Imaging of Lung Ventilation and Perfusion</span>
+            <span class="job-dates">2026</span>
+          </div>
+          <p>Oral presentation at <a href="https://www.spiedigitallibrary.org/conference-proceedings-of-spie/13929/1392917/CT-perfusion-for-simultaneous-imaging-of-lung-ventilation-and-perfusion/10.1117/12.3086098.full" target="_blank" rel="noopener">SPIE Medical Imaging</a> and <a href="https://aapm.confex.com/aapm/2026am/meetingapp.cgi/Paper/26129" target="_blank" rel="noopener">AAPM (Vancouver)</a> · Science Council Innovation in Medical Physics finalist · Manuscript in preparation</p>
+        </div>
+
+        <div class="job">
+          <div class="job-head">
+            <span class="job-role">Multiphase Coronary CTA-Based Myocardial Perfusion Estimation Using U-Net Refinement</span>
+            <span class="job-dates">2026</span>
+          </div>
+          <p>Accepted oral presentation at <a href="https://aapm.confex.com/aapm/2026am/meetingapp.cgi/Paper/26014" target="_blank" rel="noopener">AAPM Annual Meeting (Vancouver)</a> · Manuscript in preparation</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
 <section id="skills">
     <div class="wrap">
       <div class="section-label">toolkit</div>
@@ -491,10 +560,9 @@
       <div class="section-label">contact</div>
       <h2>Let's talk</h2>
       <p class="body">
-        I'm currently open to AI & software roles. The fastest way to reach me is email, I usually reply within a day.
+        I'm currently open to AI & software roles. The fastest way to reach me is by email; I usually reply within a day.
       </p>
       <div class="contact-links">
-        <!-- ===== EDIT: replace with your real links/email ===== -->
         <a class="btn primary" href="mailto:aelbada@uwo.ca">✉ aelbada@uwo.ca</a>
         <a class="btn" href="https://github.com/ahmedelbadawy" target="_blank" rel="noopener">GitHub</a>
         <a class="btn" href="https://www.linkedin.com/in/ahmed-elbadawy-m-0b6984180/" target="_blank" rel="noopener">LinkedIn</a>
