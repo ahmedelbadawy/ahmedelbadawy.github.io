@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<!-- ===== EDIT: page title shown in the browser tab ===== -->
+<title>Ahmed Mohamed</title>
+<meta name="description" content="Personal site and portfolio of Your Name, software engineer." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --bg: #0a0c11;
+    --bg-soft: #12151d;
+    --panel: #14181f;
+    --line: #232936;
+    --text: #e7e9ee;
+    --muted: #99a1b3;
+    --accent: #a78bfa;        /* violet — common in ML/AI tooling */
+    --accent-2: #5eead4;      /* teal accent for contrast */
+    --display: "Fraunces", Georgia, serif;
+    --mono: "JetBrains Mono", ui-monospace, monospace;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    background:
+      radial-gradient(1200px 600px at 80% -10%, rgba(167,139,250,0.10), transparent 60%),
+      radial-gradient(900px 500px at -10% 20%, rgba(94,234,212,0.05), transparent 55%),
+      var(--bg);
+    color: var(--text);
+    font-family: var(--mono);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+
+  body::before {
+    content: "";
+    position: fixed; inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.025'/%3E%3C/svg%3E");
+    pointer-events: none; z-index: 1;
+  }
+
+  .wrap { max-width: 920px; margin: 0 auto; padding: 0 28px; position: relative; z-index: 2; }
+
+  nav {
+    position: sticky; top: 0; z-index: 10;
+    backdrop-filter: blur(10px);
+    background: rgba(10,12,17,0.7);
+    border-bottom: 1px solid var(--line);
+  }
+  nav .wrap { display: flex; justify-content: space-between; align-items: center; height: 64px; }
+  .logo { font-family: var(--mono); font-weight: 700; letter-spacing: 1px; color: var(--text); text-decoration: none; }
+  .logo span { color: var(--accent); }
+  .nav-links { display: flex; gap: 26px; }
+  .nav-links a { color: var(--muted); text-decoration: none; font-size: 14px; transition: color .2s; }
+  .nav-links a:hover { color: var(--accent); }
+  @media (max-width: 620px) { .nav-links { display: none; } }
+
+  header { padding: 110px 0 80px; }
+  .eyebrow {
+    font-size: 13px; color: var(--accent); letter-spacing: 3px;
+    text-transform: uppercase; margin-bottom: 22px;
+    opacity: 0; animation: rise .7s .1s forwards;
+  }
+  h1 {
+    font-family: var(--display); font-weight: 500;
+    font-size: clamp(42px, 8vw, 80px); line-height: 1.02;
+    letter-spacing: -1px; margin-bottom: 24px;
+    opacity: 0; animation: rise .7s .25s forwards;
+  }
+  h1 .accent { color: var(--accent); font-style: italic; }
+  .lede {
+    font-size: clamp(16px, 2.4vw, 19px); color: var(--muted);
+    max-width: 620px; margin-bottom: 40px;
+    opacity: 0; animation: rise .7s .4s forwards;
+  }
+  .cta-row { display: flex; gap: 14px; flex-wrap: wrap; opacity: 0; animation: rise .7s .55s forwards; }
+  .btn {
+    font-family: var(--mono); font-size: 14px; font-weight: 500;
+    padding: 13px 22px; border-radius: 10px; text-decoration: none;
+    border: 1px solid var(--line); color: var(--text);
+    transition: transform .15s, border-color .2s, background .2s;
+    display: inline-flex; align-items: center; gap: 8px;
+  }
+  .btn:hover { transform: translateY(-2px); border-color: var(--accent); }
+  .btn.primary { background: var(--accent); color: #1a0f33; border-color: var(--accent); font-weight: 700; }
+  .btn.primary:hover { background: #c4b1ff; }
+
+  section { padding: 64px 0; border-top: 1px solid var(--line); }
+  .section-label {
+    font-family: var(--mono); font-size: 13px; color: var(--accent);
+    letter-spacing: 2px; text-transform: uppercase; margin-bottom: 28px;
+    display: flex; align-items: center; gap: 12px;
+  }
+  .section-label::before { content: "//"; color: var(--muted); }
+  h2 { font-family: var(--display); font-weight: 500; font-size: clamp(26px,4vw,38px); letter-spacing: -.5px; margin-bottom: 18px; }
+  p.body { color: var(--muted); font-size: 16px; max-width: 640px; }
+  p.body + p.body { margin-top: 16px; }
+
+  .projects { display: grid; gap: 18px; }
+  .card {
+    background: var(--panel); border: 1px solid var(--line);
+    border-radius: 14px; padding: 26px;
+    transition: transform .18s, border-color .2s;
+  }
+  .card:hover { transform: translateY(-3px); border-color: var(--accent); }
+  .card h3 { font-family: var(--display); font-size: 22px; font-weight: 500; margin-bottom: 8px; }
+  .card h3 a { color: var(--text); text-decoration: none; }
+  .card h3 a:hover { color: var(--accent); }
+  .card p { color: var(--muted); font-size: 15px; margin-bottom: 14px; }
+  .result { font-size: 13px; color: var(--accent-2); margin-bottom: 16px; display: block; }
+  .tags { display: flex; gap: 8px; flex-wrap: wrap; }
+  .tag { font-size: 12px; color: var(--accent); background: rgba(167,139,250,0.08); border: 1px solid rgba(167,139,250,0.22); padding: 4px 10px; border-radius: 99px; }
+
+  .timeline { display: grid; gap: 0; }
+  .job {
+    position: relative; padding: 0 0 34px 28px;
+    border-left: 1px solid var(--line);
+  }
+  .job:last-child { padding-bottom: 0; }
+  .job::before {
+    content: ""; position: absolute; left: -6px; top: 6px;
+    width: 11px; height: 11px; border-radius: 50%;
+    background: var(--accent); box-shadow: 0 0 0 4px var(--bg);
+  }
+  .job-head { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 4px; margin-bottom: 4px; }
+  .job-role { font-family: var(--display); font-size: 21px; font-weight: 500; }
+  .job-role .at { color: var(--accent); }
+  .job-dates { font-size: 13px; color: var(--muted); white-space: nowrap; }
+  .job ul { list-style: none; margin-top: 12px; display: grid; gap: 8px; }
+  .job li { color: var(--muted); font-size: 15px; padding-left: 18px; position: relative; }
+  .job li::before { content: "▸"; position: absolute; left: 0; color: var(--accent); }
+
+  .skill-group { margin-bottom: 22px; }
+  .skill-group h4 { font-family: var(--mono); font-size: 13px; color: var(--muted); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 12px; }
+  .skills { display: flex; flex-wrap: wrap; gap: 10px; }
+  .skill { font-size: 14px; background: var(--bg-soft); border: 1px solid var(--line); padding: 8px 16px; border-radius: 8px; color: var(--text); }
+
+  .contact-links { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 24px; }
+
+  footer { padding: 50px 0; border-top: 1px solid var(--line); color: var(--muted); font-size: 13px; text-align: center; }
+
+  @keyframes rise { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: translateY(0); } }
+</style>
+</head>
+<body>
+
+  <nav>
+    <div class="wrap">
+      <!-- ===== EDIT: your initials or short handle ===== -->
+      <a class="logo" href="#">Ahmed E. Mohamed<span>.</span></a>
+      <div class="nav-links">
+        <a href="#about">about</a>
+        <a href="#education">education</a>
+        <a href="#experience">experience</a>
+        <a href="#work">work</a>
+        <a href="#skills">skills</a>
+        <a href="#contact">contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <header>
+    <div class="wrap">
+      <div class="eyebrow">AI & Software Engineer · Open to work</div>
+      <!-- ===== Name  ===== -->
+      <h1>Hi, I'm Ahmed Elbadawy Mohamed.</h1>
+      <p class="lede">
+        <!-- ===== Summary ===== -->
+        I am an AI engineer (MSc, Western University) specializing in deep learning and medical image analysis, with hands-on experience across the full stack, from model development to embedded and web applications.
+
+      </p>
+      <div class="cta-row">
+        <!-- ===== resume ===== -->
+        <a class="btn primary" href="./resume.pdf" download>↓ Download Resume</a>
+        <a class="btn" href="#contact">Get in touch</a>
+      </div>
+    </div>
+  </header>
+
+  <section id="about">
+    <div class="wrap">
+      <div class="section-label">about</div>
+      <h2>A bit about me</h2>
+      <!-- ===== Background adn Hoppies ===== -->
+      <p class="body">
+        I'm an AI engineer and Software developer with a master's in Machine Learning for Health and Biomedical Sciences
+        from Western University and a background in Systems and Biomedical Engineering. My work spans
+        deep learning and medical image analysis, but what I enjoy most is the full arc, taking a
+        model from research into web systems that actually put it to use.
+      </p>
+      <p class="body">
+        I care about building things that work in real-world settings, under real constraints like
+        noisy data and limited datasets. Coding and AI are what let me turn ideas into real products
+        with real impact, and I love that — along with the constant learning the field demands.
+      </p>
+      <p class="body">
+         Outside of work, I'm usually gaming, watching movies, or out running. I also love to travel
+        and camp, discovering new places is one of my favorite ways to reset.
+      </p>
+    </div>
+  </section>
+
+    <section id="education">
+    <div class="wrap">
+      <div class="section-label">education</div>
+      <h2>Education</h2>
+      <div class="timeline">
+
+        <div class="job">
+          <div class="job-head">
+            <span class="job-role">MSc, Machine Learning in Health &amp; Biomedical Sciences <span class="at">@ Western University</span></span>
+            <span class="job-dates">Expected 2026</span>
+          </div>
+          <p>London, ON, Canada</p>
+        </div>
+
+        <div class="job">
+          <div class="job-head">
+            <span class="job-role">BSc, Systems &amp; Biomedical Engineering <span class="at">@ Cairo University</span></span>
+            <span class="job-dates">2022</span>
+          </div>
+          <ul>
+            <li>Graduated with Excellent honours (3.83 GPA), ranked 3rd of 105 in the final year.</li>
+            <li>Thesis (ranked 2nd in department) on the role of DNA-repair-gene mutations in cancer evolution.</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </section>
+  
+  <section id="experience">
+    <div class="wrap">
+      <div class="section-label">experience</div>
+      <h2>Where I've worked</h2>
+      <div class="timeline">
+
+        <!-- ===== EDIT: duplicate a .job block per role. Newest first. Lead each bullet with impact. ===== -->
+        <div class="job">
+          <div class="job-head">
+            <span class="job-role">Research Assistant <span class="at">@ Robarts Research Institute, Western University</span></span>
+            <span class="job-dates">2024 — Present</span>
+          </div>
+          <ul>
+            <li>Built a residual U-Net to refine noisy CT perfusion maps from lower-temporal resolution CT scans, using initial physics-based perfusion outputs as input and high-temporal-resolution maps as ground truth; applied pretraining and a lightweight architecture to handle a limited dataset.</li>
+            <li>Developing a segmentation model to delineate ischemic penumbra and core infarct on cerebral perfusion maps, computing the mismatch ratio used to determine stroke patients' eligibility for endovascular thrombectomy (EVT).</li>
+            <li>Built a single-acquisition pipeline using deformable image registration, signal processing, and physiological signal decomposition to generate lung ventilation and perfusion maps from one CT scan, validated against an independent reference modality.</li>
+          </ul>
+        </div>
+
+        <div class="job">
+          <div class="job-head">
+            <span class="job-role">AI Research Assistant <span class="at">@ Sejong University</span></span>
+            <span class="job-dates">Mar 2024 — Sep 2024</span>
+          </div>
+          <p>Built a multi-stage deep-learning pipeline to detect and grade lumbar spinal stenosis from MRI.</p>
+          <ul>
+            <li>Used a YOLO model to localize the region of interest on lumbar MRI scans.</li>
+            <li>Applied an EfficientNetV2 CNN to grade stenosis severity (normal, mild, moderate, severe).</li>
+            <li>Integrating an LLaMA-based LLM to generate text explanations justifying each grading decision, adding explainability to the pipeline.</li>
+          </ul>
+        </div>
+
+        <div class="job">
+          <div class="job-head">
+            <span class="job-role">Clinical Engineer (Mandatory Military Service) <span class="at">@ Elhelmia Military Hospital</span></span>
+            <span class="job-dates">Jan 2023 - Feb 2024</span>
+          </div>
+          <ul>
+            <li>Performed preventive maintenance and functionality checks on medical equipment, including defibrillators, ECG machines, and ventilators, and resolved minor issues with CT workstations and other devices.</li>
+            <li>Coordinated with vendor service teams for specialized maintenance and handled the department's routine clinical-engineering administration.</li>
+          </ul>
+        </div>
+
+        <div class="job">
+          <div class="job-head">
+            <span class="job-role">AI Research Intern <span class="at">@ Valeo</span></span>
+            <span class="job-dates">Jan 2023 - Feb 2024</span>
+          </div>
+          <p>Explored using LLMs to automate unit-test generation for embedded developers, aiming to save developer time.</p>
+          <ul>
+            <li>Fine-tuned a CodeT5 (T5-architecture) model on C code to automatically generate unit tests for C methods; produced a working proof-of-concept.</li>
+            <li>Conducted a literature review on LLM-based test generation and presented the approach and its potential value to the team.</li>
+          </ul>
+        </div>
+
+        <div class="job">
+          <div class="job-head">
+            <span class="job-role">Bioinformatics Research Intern <span class="at">@ Centre for Genomic Regulation (CRG)</span></span>
+            <span class="job-dates">Aug 2021 - Jul 2022</span>
+          </div>
+          <p>Investigated the role of DNA-repair-gene mutations in cancer evolution, combining deep learning, population-genetics simulation, and large-scale data engineering.</p>
+          <ul>
+            <li>Applied deep-learning–based mutational signature decomposition to trace mutation sources and quantify the proportion driven by deficient repair genes.</li>
+            <li>Built Wright–Fisher simulations to test whether tumorigenesis depends on repair-gene mutations (mutation-rate modifiers) or occurs without them, modeling how these mutations raise the overall mutation rate and the likelihood of acquiring driver mutations.</li>
+            <li>Engineered Python data-processing pipelines on Azure to process 3M+ mutational records.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+  <section id="work">
+    <div class="wrap">
+      <div class="section-label">selected work</div>
+      <h2>Projects</h2>
+      <div class="projects">
+
+        <!-- ===== EDIT: duplicate a card for each project. Link to GitHub repo or live demo. ===== -->
+         <div class="card">
+          <h3><a href="https://github.com/ahmedelbadawy/lumbar_spine_segmentation" target="_blank" rel="noopener">Lumbar Spine MRI Segmentation</a></h3>
+          <p>A U-Net with Squeeze-and-Excitation attention that segments five lumbar spine structures from
+            axial MRI to support diagnosis of lumbar spinal stenosis. Tuned via Weights & Biases
+            hyperparameter sweeps, it reaches a 92.78% test Dice score — outperforming the published
+            benchmark on the dataset.</p>
+          <div class="tags">
+            <span class="tag">Python</span>
+            <span class="tag">PyTorchspan>
+            <span class="tag">MONAI</span>
+            <span class="tag">Albumentations</span>
+            <span class="tag"> W&amp;B</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3><a href="https://github.com/ahmedelbadawy/CV-projects" target="_blank" rel="noopener">Computer Vision Library</a></h3>
+          <p>A computer vision library implementing classical CV algorithms entirely from scratch, without
+            high-level frameworks. It spans edge and feature detection (Canny, Hough, Harris, SIFT),
+            segmentation (K-Means, Mean-Shift, Otsu), and a complete face detection and recognition pipeline.
+            Includes an interactive interface for visualizing and testing each algorithm in real time.</p>
+          <div class="tags">
+            <span class="tag">Python</span>
+            <span class="tag">C++</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3><a href="https://github.com/ahmedelbadawy/Seizure-Detection-CHB-MIT-dataset-" target="_blank" rel="noopener">EEG Seizure Detection</a></h3>
+          <p>A machine learning pipeline that detects seizure activity in EEG recordings (CHB-MIT dataset).
+            It combines signal preprocessing and frequency/statistical feature extraction with PCA and an
+            SVM classifier to distinguish ictal from preictal states.</p>
+          <div class="tags">
+            <span class="tag">Python</span>
+            <span class="tag">scikit-learn</span>
+            <span class="tag">PyEEG</span>
+          </div>
+        </div>
+        <div class="card">
+          <h3><a href="https://github.com/ahmedelbadawy/self-driving-car/tree/main" target="_blank" rel="noopener">Self-Driving Car</a></h3>
+          <p>A self-driving car built on Arduino and ESP32, controllable through a Progressive Web App over
+            WiFi. An onboard camera runs OpenCV lane detection that steers the car autonomously via rule-based
+            control, and users can switch between manual and self-driving modes from the app.</p>
+          <div class="tags">
+            <span class="tag">Python</span>
+            <span class="tag">OpenCV</span>
+            <span class="tag">Arduino</span>
+            <span class="tag">ESP32</span>
+            <span class="tag">Node.js</span>
+            <span class="tag">PWA</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3><a href="https://github.com/ahmedelbadawy/hemodialysis_web/tree/main" target="_blank" rel="noopener">Hemodialysis Clinic Web App</a></h3>
+          <p>A full-stack web application for managing a hemodialysis clinic, with role-based access for
+            patients, physicians, and admins. Patients book appointments (synced to Google Calendar via API)
+            and receive their scans and medical reports online; physicians manage appointments, share reports
+            with patients, and collaborate through a built-in blog; admins have full control over users,
+            content, and clinic statistics.</p>
+          <div class="tags">
+            <span class="tag">Python</span>
+            <span class="tag">Flask</span>
+            <span class="tag">SQLAlchemy</span>
+            <span class="tag">HTML</span>
+            <span class="tag">CSS</span>
+          </div>
+        </div>
+        <div class="card">
+          <h3><a href="https://github.com/ahmedelbadawy/DSP/blob/main/project2-Sound_equlizer/readme.md" target="_blank" rel="noopener">Sound Equalizer</a></h3>
+          <p>A multi-document desktop DSP application for real-time audio equalization across 10 frequency
+            bands. Users can play audio, view and animate the signal before and after equalization, and
+            explore a customizable spectrogram — with all slider settings saved automatically per file.</p>
+          <div class="tags">
+            <span class="tag">Python</span>
+            <span class="tag">PyQt</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3><a href="https://github.com/ahmedelbadawy/Shazam-like-app/tree/main" target="_blank" rel="noopener">Song Recognition</a></h3>
+          <p>An audio fingerprinting app that identifies songs by their spectral signature. It extracts
+            mel-spectrogram and MFCC features, hashes them perceptually, and matches a query against a
+            database using Hamming distance to rank the closest songs. Also supports blending two songs by
+            a weighted average to find what the mix most resembles.</p>
+          <div class="tags">
+            <span class="tag">Python</span>
+            <span class="tag">PyQt</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+<section id="skills">
+    <div class="wrap">
+      <div class="section-label">toolkit</div>
+      <h2>Skills</h2>
+
+      <div class="skill-group">
+        <h4>Languages</h4>
+        <div class="skills">
+          <span class="skill">Python</span>
+          <span class="skill">C++</span>
+          <span class="skill">Java</span>
+          <span class="skill">MATLAB</span>
+          <span class="skill">R</span>
+          <span class="skill">JavaScript</span>
+        </div>
+      </div>
+
+      <div class="skill-group">
+        <h4>ML &amp; Data</h4>
+        <div class="skills">
+          <span class="skill">PyTorch</span>
+          <span class="skill">TensorFlow</span>
+          <span class="skill">scikit-learn</span>
+          <span class="skill">PySpark</span>
+          <span class="skill">Weights &amp; Biases</span>
+          <span class="skill">Power BI</span>
+          <span class="skill">Snowflake</span>
+        </div>
+      </div>
+
+      <div class="skill-group">
+        <h4>Web</h4>
+        <div class="skills">
+          <span class="skill">React</span>
+          <span class="skill">Angular</span>
+          <span class="skill">Node.js</span>
+          <span class="skill">Flask</span>
+          <span class="skill">HTML</span>
+          <span class="skill">CSS</span>
+        </div>
+      </div>
+
+      <div class="skill-group">
+        <h4>Databases</h4>
+        <div class="skills">
+          <span class="skill">SQL</span>
+          <span class="skill">MySQL</span>
+          <span class="skill">SQLAlchemy</span>
+        </div>
+      </div>
+
+      <div class="skill-group">
+        <h4>Cloud &amp; DevOps</h4>
+        <div class="skills">
+          <span class="skill">AWS</span>
+          <span class="skill">Azure</span>
+          <span class="skill">Docker</span>
+          <span class="skill">Git</span>
+        </div>
+      </div>
+
+      <div class="skill-group">
+        <h4>Embedded &amp; Other</h4>
+        <div class="skills">
+          <span class="skill">C</span>
+          <span class="skill">Arduino</span>
+          <span class="skill">ESP32</span>
+          <span class="skill">Assembly (8051)</span>
+          <span class="skill">OpenGL</span>
+          <span class="skill">PyQt</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="wrap">
+      <div class="section-label">contact</div>
+      <h2>Let's talk</h2>
+      <p class="body">
+        I'm currently open to AI & software roles. The fastest way to reach me is email, I usually reply within a day.
+      </p>
+      <div class="contact-links">
+        <!-- ===== EDIT: replace with your real links/email ===== -->
+        <a class="btn primary" href="mailto:aelbada@uwo.ca">✉ aelbada@uwo.ca</a>
+        <a class="btn" href="https://github.com/ahmedelbadawy" target="_blank" rel="noopener">GitHub</a>
+        <a class="btn" href="https://www.linkedin.com/in/ahmed-elbadawy-m-0b6984180/" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="wrap">
+      © 2026 Ahmed Elbadawy Mohamed.
+    </div>
+  </footer>
+
+</body>
+</html>
