@@ -129,6 +129,16 @@
     border-radius: 14px; padding: 26px;
     transition: transform .18s, border-color .2s;
   }
+  .card-img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 16px;
+  border: 1px solid var(--line);
+  background: var(--bg-soft);
+  display: block;
+}
   .card:hover {
   transform: translateY(-3px);
   border-color: var(--accent);
@@ -142,7 +152,34 @@
   .tags { display: flex; gap: 8px; flex-wrap: wrap; }
   .tag { font-size: 12px; color: var(--accent); background: rgba(167,139,250,0.08); border: 1px solid rgba(167,139,250,0.22); padding: 4px 10px; border-radius: 99px; }
 
+
+
+  .hero-row {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  justify-content: space-between;
+  }
+  .hero-text { flex: 1; }
+  .headshot {
+    width: 200px;
+    height: 200px;
+    flex-shrink: 0;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid var(--accent);
+    opacity: 0;
+    animation: rise .7s .3s forwards;
+  }
+  /* stack on mobile so it doesn't get cramped */
+  @media (max-width: 680px) {
+    .hero-row { flex-direction: column-reverse; align-items: flex-start; }
+    .headshot { width: 150px; height: 150px; }
+  }
+
   .timeline { display: grid; gap: 0; }
+
+
   .job {
     position: relative; padding: 0 0 34px 28px;
     border-left: 1px solid var(--line);
@@ -191,22 +228,42 @@
   </nav>
 
   <header>
-    <div class="wrap">
+    <!-- <div class="wrap">
+      <img class="headshot" src="./figs/me.jpg" alt="Photo of Your Name" />
       <div class="eyebrow">AI & Software Engineer · Open to work</div>
-      <!-- ===== Name  ===== -->
       <h1>Hi, I'm Ahmed Elbadawy Mohamed.</h1>
       <p class="lede">
-        <!-- ===== Summary ===== -->
         I am an AI engineer (MSc, Western University) specializing in deep learning and medical image analysis, with hands-on experience across the full stack, from model development to embedded and web applications.
 
       </p>
       <div class="cta-row">
-        <!-- ===== resume ===== -->
         <a class="btn primary" href="./resume.pdf" download>↓ Download Resume</a>
         <a class="btn" href="#contact">Get in touch</a>
       </div>
+    </div> -->
+
+
+    <div class="wrap">
+      <div class="hero-row">
+        <div class="hero-text">
+          <div class="eyebrow">AI & Software Engineer · Open to work</div>
+          <h1>Hi, I'm Ahmed Elbadawy Mohamed.</h1>
+          <p class="lede">
+            I am an AI engineer (MSc, Western University) specializing in deep learning and medical image analysis, 
+            with hands-on experience across the full stack, from model development to embedded and web applications.
+          </p>
+          <div class="cta-row">
+            <a class="btn primary" href="resume.pdf" download>↓ Download résumé</a>
+            <a class="btn" href="#contact">Get in touch</a>
+          </div>
+        </div>
+        <img class="headshot" src="./figs/me.jpg" alt="Personal Photo" />
+      </div>
     </div>
   </header>
+
+
+  
 
   <section id="about">
     <div class="wrap">
@@ -339,6 +396,9 @@
       <div class="projects">
 
          <div class="card">
+          <a href="https://github.com/ahmedelbadawy/lumbar_spine_segmentation" target="_blank" rel="noopener">
+          <img class="card-img" src="./figs/segmentation.png" alt="Lumbar spine MRI with colored segmentation overlay" />
+          </a>
           <h3><a href="https://github.com/ahmedelbadawy/lumbar_spine_segmentation" target="_blank" rel="noopener">Lumbar Spine MRI Segmentation</a></h3>
           <p>A U-Net with Squeeze-and-Excitation attention that segments five lumbar spine structures from
             axial MRI to support diagnosis of lumbar spinal stenosis. Tuned via Weights & Biases
@@ -354,6 +414,9 @@
         </div>
 
         <div class="card">
+          <a href="https://github.com/ahmedelbadawy/CV-projects" target="_blank" rel="noopener">
+          <img class="card-img" src="./figs/cv.png" alt="SIFT features example" />
+          </a>
           <h3><a href="https://github.com/ahmedelbadawy/CV-projects" target="_blank" rel="noopener">Computer Vision Library</a></h3>
           <p>A computer vision library implementing classical CV algorithms entirely from scratch, without
             high-level frameworks. It spans edge and feature detection (Canny, Hough, Harris, SIFT),
@@ -366,6 +429,9 @@
         </div>
 
         <div class="card">
+          <a href="https://github.com/ahmedelbadawy/Seizure-Detection-CHB-MIT-dataset-" target="_blank" rel="noopener">
+          <img class="card-img" src="./figs/eeg.png" alt="Pipeline fig" />
+          </a>
           <h3><a href="https://github.com/ahmedelbadawy/Seizure-Detection-CHB-MIT-dataset-" target="_blank" rel="noopener">EEG Seizure Detection</a></h3>
           <p>A machine learning pipeline that detects seizure activity in EEG recordings (CHB-MIT dataset).
             It combines signal preprocessing and frequency/statistical feature extraction with PCA and an
@@ -377,7 +443,10 @@
           </div>
         </div>
         <div class="card">
-          <h3><a href="https://github.com/ahmedelbadawy/self-driving-car/tree/main" target="_blank" rel="noopener">Self-Driving Car</a></h3>
+          <a href="https://github.com/ahmedelbadawy/self-driving-car" target="_blank" rel="noopener">
+          <img class="card-img" src="./figs/car.jpeg" alt="Car app fig" />
+          </a>
+          <h3><a href="https://github.com/ahmedelbadawy/self-driving-car" target="_blank" rel="noopener">Self-Driving Car</a></h3>
           <p>A self-driving car built on Arduino and ESP32, controllable through a Progressive Web App over
             WiFi. An onboard camera runs OpenCV lane detection that steers the car autonomously via rule-based
             control, and users can switch between manual and self-driving modes from the app.</p>
@@ -390,8 +459,26 @@
             <span class="tag">PWA</span>
           </div>
         </div>
+        
 
         <div class="card">
+          <a href="https://github.com/ahmedelbadawy/Zplane-web-viewer/tree/main" target="_blank" rel="noopener">
+          <img class="card-img" src="./figs/zplane.png" alt="Web app fig" />
+          </a>
+          <h3><a href="https://github.com/ahmedelbadawy/Zplane-web-viewer/tree/main" target="_blank" rel="noopener">Z-Plane Digital Filter Visualizer</a></h3>
+          <p>An interactive browser-based tool for designing discrete-time digital filters by placing poles and zeros on the Z-plane. 
+            Submit your design to instantly visualise the magnitude and phase frequency response, with optional all-pass phase correction.</p>
+          <div class="tags">
+            <span class="tag">Python</span>
+            <span class="tag">Flask</span>
+            <span class="tag">chart.js</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <a href="https://github.com/ahmedelbadawy/hemodialysis_web/tree/main" target="_blank" rel="noopener">
+          <img class="card-img" src="./figs/hemo_web.jpeg" alt="Web app fig" />
+          </a>
           <h3><a href="https://github.com/ahmedelbadawy/hemodialysis_web/tree/main" target="_blank" rel="noopener">Hemodialysis Clinic Web App</a></h3>
           <p>A full-stack web application for managing a hemodialysis clinic, with role-based access for
             patients, physicians, and admins. Patients book appointments (synced to Google Calendar via API)
@@ -407,7 +494,10 @@
           </div>
         </div>
         <div class="card">
-          <h3><a href="https://github.com/ahmedelbadawy/DSP/blob/main/project2-Sound_equlizer/readme.md" target="_blank" rel="noopener">Sound Equalizer</a></h3>
+          <a href="https://github.com/ahmedelbadawy/DSP/blob/main/project2-Sound_equlizer" target="_blank" rel="noopener">
+          <img class="card-img" src="./figs/audio.jpeg" alt="Sound equlizer app example" />
+          </a>
+          <h3><a href="https://github.com/ahmedelbadawy/DSP/blob/main/project2-Sound_equlizer" target="_blank" rel="noopener">Sound Equalizer</a></h3>
           <p>A multi-document desktop DSP application for real-time audio equalization across 10 frequency
             bands. Users can play audio, view and animate the signal before and after equalization, and
             explore a customizable spectrogram — with all slider settings saved automatically per file.</p>
@@ -418,6 +508,9 @@
         </div>
 
         <div class="card">
+          <a href="https://github.com/ahmedelbadawy/Shazam-like-app/tree/main" target="_blank" rel="noopener">
+          <img class="card-img" src="./figs/shazam.jpeg" alt="Song recog app example" />
+          </a>
           <h3><a href="https://github.com/ahmedelbadawy/Shazam-like-app/tree/main" target="_blank" rel="noopener">Song Recognition</a></h3>
           <p>An audio fingerprinting app that identifies songs by their spectral signature. It extracts
             mel-spectrogram and MFCC features, hashes them perceptually, and matches a query against a
@@ -426,6 +519,21 @@
           <div class="tags">
             <span class="tag">Python</span>
             <span class="tag">PyQt</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <a href="https://github.com/ahmedelbadawy/-3D-BODY-MODEL/tree/master" target="_blank" rel="noopener">
+          <img class="card-img" src="./figs/interactive.jpeg" alt="Articulated 3D Human Figure" />
+          </a>
+          <h3><a href="https://github.com/ahmedelbadawy/-3D-BODY-MODEL/tree/master" target="_blank" rel="noopener">Articulated 3D Human Figure</a></h3>
+          <p>An interactive 3D articulated human figure built with OpenGL and GLUT. Every joint in the body is independently controllable via keyboard, 
+            with full 3D camera navigation using mouse drag and arrow keys.</p>
+          <div class="tags">
+            <span class="tag">C</span>
+            <span class="tag">OpenGL</span>
+            <span class="tag">GLUT</span>
+            <span class="tag">Camera mathematics</span>
           </div>
         </div>
 
