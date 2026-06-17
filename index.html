@@ -414,6 +414,24 @@
         </div>
 
         <div class="card">
+          <a href="https://github.com/ahmedelbadawy/X-Ray_report_generation/tree/main" target="_blank" rel="noopener">
+          <img class="card-img" src="./figs/pipeline.png" alt="Multimodal RAG for Chest X-ray Impression Generation Figure" />
+          </a>
+          <h3><a href="https://github.com/ahmedelbadawy/X-Ray_report_generation/tree/main" target="_blank" rel="noopener">Multimodal RAG for Chest X-ray Impression Generation</a></h3>
+          <p>A multimodal Retrieval-Augmented Generation (RAG) system that generates clinically grounded Chest X-ray Impression sections by retrieving visually similar cases from MIMIC-CXR 
+            using an ALBEF image encoder and Chroma vector database. Retrieved reports are passed to a local Qwen2.5-32B model (via Ollama) under evidence-constrained prompting to reduce 
+            hallucinations and improve clinical consistency. The pipeline achieves a CheXbert micro-F1 of 0.363, demonstrating improved factual grounding through retrieval-driven generation 
+            rather than free-form LLM output.</p>
+          <div class="tags">
+            <span class="tag">Python</span>
+            <span class="tag">RAG</span>
+            <span class="tag">Vector Databases </span>
+            <span class="tag">LLM</span>
+            <span class="tag">Vision-Language Models</span>
+          </div>
+        </div>
+
+        <div class="card">
           <a href="https://github.com/ahmedelbadawy/CV-projects" target="_blank" rel="noopener">
           <img class="card-img" src="./figs/cv.png" alt="SIFT features example" />
           </a>
@@ -525,20 +543,6 @@
         </div>
 
         <div class="card">
-          <a href="https://github.com/ahmedelbadawy/elevator-system/tree/master" target="_blank" rel="noopener">
-          <img class="card-img" src="./figs/elevator.png" alt="Articulated 3D Human Figure" />
-          </a>
-          <h3><a href="https://github.com/ahmedelbadawy/elevator-system/tree/master" target="_blank" rel="noopener">Elevator Control System</a></h3>
-          <p>A 5-floor elevator controller built on the C8051F020 microcontroller, simulated in Proteus. 
-            Handles real-time floor requests from both inside the cabin and hall call buttons, with a servo-driven door and floor display.</p>
-          <div class="tags">
-            <span class="tag">Embedded C</span>
-            <span class="tag">STM8051</span>
-            <span class="tag">Proteus </span>
-          </div>
-        </div>
-
-        <div class="card">
           <a href="https://github.com/ahmedelbadawy/Seizure-Detection-CHB-MIT-dataset-" target="_blank" rel="noopener">
           <img class="card-img" src="./figs/eeg.png" alt="Pipeline fig" />
           </a>
@@ -625,11 +629,14 @@
         <div class="skills">
           <span class="skill">PyTorch</span>
           <span class="skill">TensorFlow</span>
-          <span class="skill">scikit-learn</span>
+          <!-- <span class="skill">scikit-learn</span> -->
+          <span class="skill">RAG</span>
+          <span class="skill">LLM</span>
+          <span class="skill">Vision-Language Models</span>
           <span class="skill">PySpark</span>
           <span class="skill">Weights &amp; Biases</span>
           <span class="skill">Power BI</span>
-          <span class="skill">Snowflake</span>
+          <!-- <span class="skill">Snowflake</span> -->
         </div>
       </div>
 
@@ -649,8 +656,10 @@
         <h4>Databases</h4>
         <div class="skills">
           <span class="skill">SQL</span>
-          <span class="skill">MySQL</span>
+          <!-- <span class="skill">MySQL</span> -->
           <span class="skill">SQLAlchemy</span>
+          <span class="skill">ChromaDB</span>
+
         </div>
       </div>
 
