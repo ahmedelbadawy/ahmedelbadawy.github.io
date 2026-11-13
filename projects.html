@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Projects · Ahmed Elbadawy Mohamed</title>
+<meta name="description" content="Side and course projects by Ahmed Elbadawy Mohamed: lumbar spine MRI segmentation, multimodal RAG for chest X-ray impressions, and earlier computer vision, signal processing, and web projects." />
+<meta name="author" content="Ahmed Elbadawy Mohamed" />
+<link rel="canonical" href="https://ahmedelbadawy.engineer/projects.html" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Ahmed Elbadawy Mohamed" />
+<meta property="og:title" content="Projects · Ahmed Elbadawy Mohamed" />
+<meta property="og:description" content="Side and course projects in medical imaging AI, computer vision, signal processing, and software." />
+<meta property="og:url" content="https://ahmedelbadawy.engineer/projects.html" />
+<meta property="og:image" content="https://ahmedelbadawy.engineer/figs/segmentation.png" />
+<meta name="twitter:card" content="summary" />
+<meta name="theme-color" content="#0a0c11" />
+<link rel="icon" href="favicon.svg" type="image/svg+xml" />
+<link rel="apple-touch-icon" href="figs/me.jpg" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.9.4/css/academicons.min.css" />
+<link rel="stylesheet" href="assets/css/style.css" />
+<script src="assets/js/site.js"></script>
+</head>
+<body data-page="projects">
+<header id="site-header"></header>
+
+<main id="main">
+  <div class="page-head">
+    <div class="wrap">
+      <div class="eyebrow">projects</div>
+      <h1>Other projects</h1>
+      <p class="lede">Side and course projects outside my thesis work. Code is on <a href="https://github.com/ahmedelbadawy" target="_blank" rel="noopener">GitHub</a>.</p>
+    </div>
+  </div>
+
+  <section id="featured">
+    <div class="wrap">
+      <div class="section-label">featured</div>
+      <div class="grid-2">
+
+        <div class="card">
+          <a href="https://github.com/ahmedelbadawy/lumbar_spine_segmentation" target="_blank" rel="noopener">
+            <img class="card-img" src="figs/segmentation.png" alt="Lumbar spine MRI with coloured segmentation overlay" loading="lazy" />
+          </a>
+          <h3><a href="https://github.com/ahmedelbadawy/lumbar_spine_segmentation" target="_blank" rel="noopener">Lumbar Spine MRI Segmentation</a></h3>
+          <p>A U-Net with Squeeze-and-Excitation attention that segments five lumbar spine structures from
+            axial MRI to support diagnosis of lumbar spinal stenosis. Tuned via Weights &amp; Biases
+            hyperparameter sweeps, it reaches a 92.78% test Dice score, outperforming the published
+            benchmark on the dataset.</p>
+          <div class="tags">
+            <span class="tag">Python</span>
+            <span class="tag">PyTorch</span>
+            <span class="tag">MONAI</span>
+            <span class="tag">Albumentations</span>
+            <span class="tag">W&amp;B</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <a href="https://github.com/ahmedelbadawy/X-Ray_report_generation/tree/main" target="_blank" rel="noopener">
+            <img class="card-img" src="figs/pipeline.png" alt="Pipeline diagram of the multimodal RAG system for chest X-ray impression generation" loading="lazy" />
+          </a>
+          <h3><a href="https://github.com/ahmedelbadawy/X-Ray_report_generation/tree/main" target="_blank" rel="noopener">Multimodal RAG for Chest X-ray Impression Generation</a></h3>
+          <p>A multimodal Retrieval-Augmented Generation (RAG) system that generates clinically grounded chest X-ray
+            Impression sections by retrieving visually similar cases from MIMIC-CXR using an ALBEF image encoder
+            and a Chroma vector database. Retrieved reports are passed to a local Qwen2.5-32B model (via Ollama)
+            under evidence-constrained prompting to reduce hallucinations. The pipeline achieves a CheXbert
+            micro-F1 of 0.363.</p>
+          <div class="tags">
+            <span class="tag">Python</span>
+            <span class="tag">RAG</span>
+            <span class="tag">Vector databases</span>
+            <span class="tag">LLM</span>
+            <span class="tag">Vision-language models</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section id="earlier">
+    <div class="wrap">
+      <div class="section-label">earlier projects</div>
+      <div class="grid-3">
+
+        <div class="card compact">
+          <a href="https://github.com/ahmedelbadawy/CV-projects" target="_blank" rel="noopener"><img class="card-img" src="figs/cv.png" alt="SIFT feature matching example" loading="lazy" /></a>
+          <h3><a href="https://github.com/ahmedelbadawy/CV-projects" target="_blank" rel="noopener">Computer Vision Library</a></h3>
+          <p>Classical CV algorithms implemented from scratch: Canny, Hough, Harris, SIFT, K-Means, Mean-Shift, Otsu, and a face detection and recognition pipeline, with an interactive interface.</p>
+          <div class="tags"><span class="tag">Python</span><span class="tag">C++</span></div>
+        </div>
+
+        <div class="card compact">
+          <a href="https://github.com/ahmedelbadawy/self-driving-car" target="_blank" rel="noopener"><img class="card-img" src="figs/car.jpeg" alt="Self-driving car control app" loading="lazy" /></a>
+          <h3><a href="https://github.com/ahmedelbadawy/self-driving-car" target="_blank" rel="noopener">Self-Driving Car</a></h3>
+          <p>Arduino/ESP32 car controlled from a Progressive Web App over WiFi, with OpenCV lane detection for autonomous rule-based steering.</p>
+          <div class="tags"><span class="tag">OpenCV</span><span class="tag">ESP32</span><span class="tag">Node.js</span></div>
+        </div>
+
+        <div class="card compact">
+          <a href="https://github.com/ahmedelbadawy/Zplane-web-viewer/tree/main" target="_blank" rel="noopener"><img class="card-img" src="figs/zplane.png" alt="Z-plane filter designer web app" loading="lazy" /></a>
+          <h3><a href="https://github.com/ahmedelbadawy/Zplane-web-viewer/tree/main" target="_blank" rel="noopener">Z-Plane Digital Filter Visualizer</a></h3>
+          <p>Browser tool for designing digital filters by placing poles and zeros, showing magnitude and phase response with optional all-pass correction.</p>
+          <div class="tags"><span class="tag">Flask</span><span class="tag">chart.js</span></div>
+        </div>
+
+        <div class="card compact">
+          <a href="https://github.com/ahmedelbadawy/hemodialysis_web/tree/main" target="_blank" rel="noopener"><img class="card-img" src="figs/hemo_web.jpeg" alt="Hemodialysis clinic web app" loading="lazy" /></a>
+          <h3><a href="https://github.com/ahmedelbadawy/hemodialysis_web/tree/main" target="_blank" rel="noopener">Hemodialysis Clinic Web App</a></h3>
+          <p>Full-stack clinic management app with role-based access for patients, physicians, and admins, and Google Calendar appointment sync.</p>
+          <div class="tags"><span class="tag">Flask</span><span class="tag">SQLAlchemy</span></div>
+        </div>
+
+        <div class="card compact">
+          <a href="https://github.com/ahmedelbadawy/DSP/blob/main/project2-Sound_equlizer" target="_blank" rel="noopener"><img class="card-img" src="figs/audio.jpeg" alt="Sound equalizer app" loading="lazy" /></a>
+          <h3><a href="https://github.com/ahmedelbadawy/DSP/blob/main/project2-Sound_equlizer" target="_blank" rel="noopener">Sound Equalizer</a></h3>
+          <p>Desktop DSP app for real-time 10-band audio equalization, with animated before/after signals and a customizable spectrogram.</p>
+          <div class="tags"><span class="tag">Python</span><span class="tag">PyQt</span></div>
+        </div>
+
+        <div class="card compact">
+          <a href="https://github.com/ahmedelbadawy/Shazam-like-app/tree/main" target="_blank" rel="noopener"><img class="card-img" src="figs/shazam.jpeg" alt="Song recognition app" loading="lazy" /></a>
+          <h3><a href="https://github.com/ahmedelbadawy/Shazam-like-app/tree/main" target="_blank" rel="noopener">Song Recognition</a></h3>
+          <p>Audio fingerprinting with mel-spectrogram and MFCC features, perceptual hashing, and Hamming-distance matching.</p>
+          <div class="tags"><span class="tag">Python</span><span class="tag">PyQt</span></div>
+        </div>
+
+        <div class="card compact">
+          <a href="https://github.com/ahmedelbadawy/-3D-BODY-MODEL/tree/master" target="_blank" rel="noopener"><img class="card-img" src="figs/interactive.jpeg" alt="Articulated 3D human figure" loading="lazy" /></a>
+          <h3><a href="https://github.com/ahmedelbadawy/-3D-BODY-MODEL/tree/master" target="_blank" rel="noopener">Articulated 3D Human Figure</a></h3>
+          <p>Interactive OpenGL/GLUT human figure with keyboard-controlled joints and full 3D camera navigation.</p>
+          <div class="tags"><span class="tag">C</span><span class="tag">OpenGL</span></div>
+        </div>
+
+        <div class="card compact">
+          <a href="https://github.com/ahmedelbadawy/Seizure-Detection-CHB-MIT-dataset-" target="_blank" rel="noopener"><img class="card-img" src="figs/eeg.png" alt="EEG seizure detection pipeline" loading="lazy" /></a>
+          <h3><a href="https://github.com/ahmedelbadawy/Seizure-Detection-CHB-MIT-dataset-" target="_blank" rel="noopener">EEG Seizure Detection</a></h3>
+          <p>Seizure detection on CHB-MIT EEG using frequency/statistical features, PCA, and an SVM classifier.</p>
+          <div class="tags"><span class="tag">Python</span><span class="tag">scikit-learn</span></div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer id="site-footer" class="site-footer"></footer>
+</body>
+</html>

@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Research · Ahmed Elbadawy Mohamed</title>
+<meta name="description" content="Research themes: lung ventilation, lung perfusion and myocardial perfusion from a single dynamic contrast-enhanced CT scan, myocardial perfusion from multiphase coronary CTA, and brain perfusion with core/penumbra segmentation from multiphase CTA for thrombectomy eligibility." />
+<meta name="author" content="Ahmed Elbadawy Mohamed" />
+<link rel="canonical" href="https://ahmedelbadawy.engineer/research.html" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Ahmed Elbadawy Mohamed" />
+<meta property="og:title" content="Research · Ahmed Elbadawy Mohamed" />
+<meta property="og:description" content="Quantitative CT imaging of lung and heart function: tracer-kinetic modelling, deformable registration, and physics-informed deep learning." />
+<meta property="og:url" content="https://ahmedelbadawy.engineer/research.html" />
+<meta property="og:image" content="https://ahmedelbadawy.engineer/figs/Lungvq-wide-web.jpg" />
+<meta name="twitter:card" content="summary" />
+<meta name="theme-color" content="#0a0c11" />
+<link rel="icon" href="favicon.svg" type="image/svg+xml" />
+<link rel="apple-touch-icon" href="figs/me.jpg" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.9.4/css/academicons.min.css" />
+<link rel="stylesheet" href="assets/css/style.css" />
+<script src="assets/js/site.js"></script>
+</head>
+<body data-page="research">
+<header id="site-header"></header>
+
+<main id="main">
+  <div class="page-head">
+    <div class="wrap">
+      <div class="eyebrow">research</div>
+      <h1>Measuring organ function with CT</h1>
+      <p class="lede">
+        I develop quantitative CT imaging methods that combine tracer-kinetic modelling with
+        physics-informed deep learning to measure lung and heart function for safer radiotherapy.
+        Current work spans three themes.
+      </p>
+      <h3 class="sub">Research interests</h3>
+      <div class="interest-grid">
+        <div class="interest">
+          <span class="interest-icon"><i class="fa-solid fa-microchip"></i></span>
+          <div>
+            <h4>Physics-informed AI</h4>
+            <p>Physics- and physiology-informed AI to improve pharmacokinetic modelling.</p>
+          </div>
+        </div>
+        <div class="interest">
+          <span class="interest-icon"><i class="fa-solid fa-lungs"></i></span>
+          <div>
+            <h4>Cardiopulmonary imaging</h4>
+            <p>Functional imaging of cardiopulmonary physiology.</p>
+          </div>
+        </div>
+        <div class="interest">
+          <span class="interest-icon"><i class="fa-solid fa-crosshairs"></i></span>
+          <div>
+            <h4>Personalized cancer treatment</h4>
+            <p>Using functional imaging in personalized cancer treatment, including functional avoidance radiotherapy planning to spare healthy tissue and reduce toxicity.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <section>
+    <div class="wrap">
+
+      <!-- ===== Theme 1 ===== -->
+      <article class="card theme-card has-figure" id="vq">
+        <span class="theme-num">01</span>
+        <h3>Lung ventilation, lung perfusion and myocardial perfusion from a single dynamic contrast-enhanced CT scan <span class="status">PhD thesis</span></h3>
+        <figure class="theme-figure">
+          <a class="figure-frame" href="figs/Lungvq-wide.png" target="_blank" rel="noopener" title="Open full-size figure">
+            <img src="figs/Lungvq-wide-web.jpg" width="1800" height="1123" loading="lazy"
+                 alt="One CT perfusion scan, three functional maps: derived lung perfusion, lung ventilation and myocardial perfusion maps beside Ga-PET, Xe-CT and reference myocardial CT perfusion, with per-scan Spearman correlations and a regression of myocardial perfusion against reference CTP." />
+            <span class="zoom-hint"><i class="fa-solid fa-up-right-and-down-left-from-center"></i> Full size</span>
+          </a>
+          <figcaption>(A–C) Derived lung perfusion, lung ventilation and myocardial perfusion vs. reference standards; (D–F) their agreement across scans and myocardial segments.</figcaption>
+        </figure>
+        <div class="theme-cols">
+          <div class="theme-body">
+            <p>
+              Functional lung avoidance radiotherapy aims to protect the best-working parts of the lung
+              during lung cancer treatment, and the heart is an equally important organ at risk. Mapping
+              lung ventilation, lung perfusion and heart muscle perfusion would normally take three
+              separate nuclear medicine scans with different tracers.
+            </p>
+            <p>
+              This project derives all three from a single dynamic contrast-enhanced CT scan acquired in the same session
+              as the radiotherapy planning CT. Deformable registration and tracer-kinetic modelling
+              separate the breathing and blood-flow signals in the lung, and the heart is reconstructed at
+              mid-diastole to measure myocardial perfusion.
+            </p>
+            <p>
+              Repeated at follow-up, the same scan could also help catch early lung and heart toxicity
+              after treatment.
+            </p>
+            <div class="tags">
+              <span class="tag">Deformable registration</span>
+              <span class="tag">Tracer-kinetic modelling</span>
+              <span class="tag">CT perfusion</span>
+              <span class="tag teal">Functional lung avoidance RT</span>
+              <span class="tag teal">Cardiac toxicity</span>
+              <span class="tag teal">Pulmonary embolism</span>
+            </div>
+          </div>
+          <div class="theme-side">
+            <div class="key-result">
+              <b>Key results</b>
+              In animal studies, all three maps agreed closely with established reference standards:
+              <ul>
+                <li>Lung ventilation vs. xenon-enhanced CT: pooled Spearman ρ = 0.73 (per-scan 0.61–0.86).</li>
+                <li>Lung perfusion vs. <sup>68</sup>Ga-MAA PET: pooled ρ = 0.83 (per-scan 0.65–0.88).</li>
+                <li>Myocardial perfusion vs. conventional cardiac CT perfusion across the 16 AHA segments: regression slope 1.01 (95% CI 0.92–1.13).</li>
+              </ul>
+            </div>
+            <b class="side-label">Related</b>
+            <ul class="related">
+              <li><a href="publications.html#mohamed2026spie">CT perfusion for simultaneous imaging of lung ventilation and perfusion (VQ)</a>, SPIE Medical Imaging abstract, 2026</li>
+              <li><a href="publications.html#mohamed2026aapm_vq">CT-Based Quantitative Ventilation–Perfusion Imaging for Pulmonary Embolism Assessment</a>, AAPM|COMP abstract, 2026</li>
+              <li><a href="publications.html#mohamed_inprep_vq">Journal manuscript in preparation</a></li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <!-- ===== Theme 2 ===== -->
+      <article class="card theme-card has-figure" id="myocardial">
+        <span class="theme-num">02</span>
+        <h3>Myocardial perfusion from multiphase coronary CTA</h3>
+        <figure class="theme-figure">
+          <a class="figure-frame" href="figs/mcta_perfusion.png" target="_blank" rel="noopener" title="Open full-size figure">
+            <img src="figs/mcta_perfusion-web.jpg" width="1600" height="1061" loading="lazy"
+                 alt="Short-axis myocardial perfusion maps in two representative slices, comparing mCTA perfusion, the hybrid method, and conventional myocardial CT perfusion." />
+            <span class="zoom-hint"><i class="fa-solid fa-up-right-and-down-left-from-center"></i> Full size</span>
+          </a>
+          <figcaption>Short-axis myocardial perfusion maps in two representative slices: mCTA perfusion, the hybrid method, and conventional myocardial CTP.</figcaption>
+        </figure>
+        <div class="theme-cols">
+          <div class="theme-body">
+            <p>
+              Coronary CT angiography (CTA) shows where the coronary arteries are narrowed, but not whether
+              the heart muscle is getting enough blood. That usually requires a separate CT perfusion scan,
+              which adds time and radiation dose.
+            </p>
+            <p>
+              This project turns a standard coronary CTA into a combined anatomical and functional exam.
+              Two short delayed phases are added to the routine CTA, and together with a non-contrast CT
+              they let a tracer-kinetic model estimate myocardial blood flow. Because so few time points
+              make these estimates noisy, a residual U-Net then refines the perfusion maps.
+            </p>
+            <p>
+              The aim is wider access to stenosis and ischemia assessment from a single, lower-dose study.
+            </p>
+            <div class="tags">
+              <span class="tag">Tracer-kinetic modelling</span>
+              <span class="tag">Residual U-Net</span>
+              <span class="tag">Coronary CTA</span>
+              <span class="tag teal">Radiation cardiotoxicity</span>
+              <span class="tag teal">Myocardial ischemia</span>
+            </div>
+          </div>
+          <div class="theme-side">
+            <div class="key-result">
+              <b>Key results</b>
+              In 12 animals imaged weekly (77 exams, leave-one-animal-out cross-validation), refinement cut
+              the segment-level error against reference CT perfusion from 18.86 to 13.58 mL/100&nbsp;g/min,
+              a 28% reduction (p &lt; 0.001).
+              <ul>
+                <li>Limits of agreement narrowed by 31%.</li>
+                <li>Bias fell from +6.93 to −1.09 mL/100&nbsp;g/min.</li>
+                <li>Structural similarity rose from 0.761 to 0.795.</li>
+                <li>The reference scan itself carries up to about 7.8 mL/100&nbsp;g/min of measurement error, so the refined maps are approaching the best agreement possible.</li>
+              </ul>
+            </div>
+            <b class="side-label">Related</b>
+            <ul class="related">
+              <li><a href="publications.html#mohamed2026aapm_myo">Generating Perfusion Maps from Multiphase Coronary CTA for Myocardial Ischemia Assessment</a>, AAPM|COMP abstract, 2026</li>
+              <li><a href="publications.html#mohamed_inprep_myo">Journal manuscript in preparation</a></li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <!-- ===== Theme 3 ===== -->
+      <article class="card theme-card" id="stroke">
+        <!-- TODO: figure, e.g. <img class="card-img" src="figs/stroke.png" alt="Brain perfusion maps from multiphase CTA with core and penumbra segmentation" /> -->
+        <span class="theme-num">03</span>
+        <h3>Stroke: brain perfusion and thrombectomy eligibility from multiphase CTA <span class="status">In progress</span></h3>
+        <p>
+          This project generates brain perfusion maps from multiphase CT angiography (mCTA) and uses AI
+          to segment the ischemic core and penumbra. The segmented volumes are then used to apply the
+          DEFUSE 3 criteria and assess whether a stroke patient is eligible for endovascular
+          thrombectomy (EVT).
+        </p>
+        <div class="tags" style="margin-bottom:16px">
+          <span class="tag">Multiphase CTA</span>
+          <span class="tag">Perfusion mapping</span>
+          <span class="tag">AI segmentation</span>
+          <span class="tag teal">DEFUSE 3</span>
+          <span class="tag teal">Endovascular thrombectomy</span>
+        </div>
+        <p class="note">No publications yet.</p>
+      </article>
+
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="section-label">elsewhere</div>
+      <p class="body">
+        Full publication list on the <a href="publications.html">publications page</a> and
+        <a href="https://scholar.google.ca/citations?user=GBvaTfAAAAAJ&amp;hl=en" target="_blank" rel="noopener">Google Scholar</a>;
+        conference presentations on the <a href="talks.html">talks page</a>.
+      </p>
+    </div>
+  </section>
+</main>
+
+<footer id="site-footer" class="site-footer"></footer>
+</body>
+</html>
