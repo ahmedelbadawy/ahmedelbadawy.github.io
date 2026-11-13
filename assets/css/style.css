@@ -23,7 +23,7 @@
   --nav-bg: rgba(10, 12, 17, 0.7);
   --shadow: 0 8px 30px rgba(167, 139, 250, 0.08);
   --noise-opacity: 0.025;
-  --display: "Fraunces", Georgia, serif;
+  --display: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   --sans: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   --mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
   color-scheme: dark;
@@ -125,7 +125,7 @@ body::before {
   border-bottom: 1px solid var(--line);
 }
 .site-nav .wrap { display: flex; justify-content: space-between; align-items: center; height: 64px; gap: 16px; }
-.logo { font-family: var(--display); font-size: 20px; font-weight: 600; color: var(--text); text-decoration: none; white-space: nowrap; }
+.logo { font-family: var(--display); font-size: 18px; font-weight: 700; letter-spacing: -0.3px; color: var(--text); text-decoration: none; white-space: nowrap; }
 .logo span { color: var(--accent); }
 .nav-right { display: flex; align-items: center; gap: 18px; }
 .nav-links { display: flex; gap: 22px; list-style: none; }
@@ -165,13 +165,13 @@ body::before {
   opacity: 0; animation: rise .7s .1s forwards;
 }
 h1 {
-  font-family: var(--display); font-weight: 500;
+  font-family: var(--display); font-weight: 700;
   max-width: 1040px;
   font-size: clamp(38px, 8vw, 80px); line-height: 1.08;
-  letter-spacing: -1px; margin-bottom: 24px;
+  letter-spacing: -2px; margin-bottom: 24px;
   opacity: 0; animation: rise .7s .25s forwards;
 }
-h1 .accent { color: var(--accent); font-style: italic; }
+h1 .accent { color: var(--accent); }
 .lede {
   font-size: clamp(16px, 2.4vw, 19px); color: var(--muted);
   max-width: 880px; margin-bottom: 18px;
@@ -221,7 +221,7 @@ section { padding: 64px 0; border-top: 1px solid var(--line); }
   font-family: var(--sans); font-size: 13px; font-weight: 600; color: var(--accent);
   letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 14px;
 }
-h2 { font-family: var(--display); font-weight: 500; font-size: clamp(26px, 4vw, 38px); letter-spacing: -.5px; margin-bottom: 18px; }
+h2 { font-family: var(--display); font-weight: 700; font-size: clamp(26px, 3.6vw, 36px); letter-spacing: -.8px; margin-bottom: 18px; }
 h3.sub { font-family: var(--sans); font-size: 13px; color: var(--muted); text-transform: uppercase; letter-spacing: 1.2px; margin: 40px 0 18px; font-weight: 600; }
 h3.sub:first-of-type { margin-top: 8px; }
 p.body { color: var(--muted); font-size: 16.5px; max-width: 940px; }
@@ -454,3 +454,5 @@ details.abstract[open] summary::before { content: "−"; }
   .eyebrow, h1, .lede, .lede-sub, .cta-row, .headshot { opacity: 1; }
   html { scroll-behavior: auto; }
 }
+
+.page-head h1 + .cta-row { margin-top: 24px; }
